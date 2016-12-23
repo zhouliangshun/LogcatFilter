@@ -54,7 +54,7 @@ public class Log {
 	}
 	
 	/**
-	 * 从一行字符串解析为log对象
+	 * Parse log from logcat string
 	 * @param line
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class Log {
 
 
 //		System.out.println("tag:"+strings[i]);
-		log.tag = strings[i].substring(0,strings[i].length()-1);
+		log.tag = strings[i].trim().replace(":","");
 		log.content = line.substring(line.indexOf(strings[i])+strings[i].length());
 		
 		return log;

@@ -27,7 +27,7 @@ public class Main {
 
 				String arg = args[i];
 				if (arg.equalsIgnoreCase("-t")) {
-					tag.add(args[i+1].toLowerCase().trim());
+					tag.add(args[i+1].trim());
 				} else if (arg.equalsIgnoreCase("-i")) {
 					type.add(args[i+1].toLowerCase().trim());
 				} else if (arg.equalsIgnoreCase("-p")) {
@@ -67,22 +67,18 @@ public class Main {
 		
 		String sLine = null;
 		while ((sLine=bR.readLine())!=null) {
-			//type type2 = (type) en.nextElement();
+
 			Log log = Log.parse(sLine);
-			
+
 			if(log==null)
 				continue;
-			
-			if(!tag.isEmpty()&&!tag.contains(log.getTag().toLowerCase()))
+
+			if(!tag.isEmpty()&&!tag.contains(log.getTag()))
 				continue;
-			
-	
-			if(!pid.isEmpty()&&!pid.contains(log.getPid().toLowerCase())){
-				//System.out.println(pid+":"+log.getPid());
+
+			if(!pid.isEmpty()&&!pid.contains(log.getPid().toLowerCase()))
 				continue;
-			}
-				
-			
+
 			if(!gid.isEmpty()&&!pid.contains(log.getGid().toLowerCase()))
 				continue;
 			
